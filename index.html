@@ -1,102 +1,470 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Deepika Narayan🌸</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deepika Narayan — Business Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111111;
+    --ink-soft: #555555;
+    --ink-muted: #999999;
+    --bg: #fafaf8;
+    --bg-card: #ffffff;
+    --accent: #1a3a5c;
+    --accent-light: #e8eef4;
+    --border: #e5e5e0;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fdf6ec;
-            margin: 0;
-        }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .container {
-            display: flex;
-            height: 100vh;
-        }
+  html { scroll-behavior: smooth; }
 
-        .left {
-            width: 40%;
-            background-color: #f8e8ee;
-            padding: 40px;
-        }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        .right {
-            width: 60%;
-            padding: 40px;
-            overflow-y: scroll;
-        }
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); text-decoration: none; letter-spacing: 0.01em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.8rem; font-weight: 400; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
 
-        h1 {
-            margin-top: 0;
-        }
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 4rem 5rem;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .hero-inner { max-width: 680px; }
+  .hero-eyebrow {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.08;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-desc {
+    font-size: 1.05rem; color: var(--ink-soft); max-width: 520px;
+    margin-bottom: 2.5rem; line-height: 1.75;
+  }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 0.7rem 1.6rem;
+    font-family: var(--sans); font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none; border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #0f2540; }
+  .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn-outline:hover { background: var(--accent-light); }
 
-        .project {
-            margin-bottom: 30px;
-            padding: 15px;
-            background-color: #ffffff;
-            border-radius: 10px;
-        }
+  .hero-stats {
+    margin-top: 4rem; padding-top: 3rem;
+    border-top: 1px solid var(--border);
+    display: flex; gap: 3rem; flex-wrap: wrap;
+  }
+  .stat-num { font-family: var(--serif); font-size: 2.2rem; color: var(--ink); display: block; line-height: 1; }
+  .stat-label { font-size: 0.75rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; display: block; }
 
-        a {
-            text-decoration: none;
-            color: #e75480;
-        }
-    </style>
+  /* SECTIONS */
+  section { padding: 6rem 4rem; max-width: 1100px; margin: 0 auto; }
+  .section-header { margin-bottom: 3.5rem; }
+  .section-eyebrow {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+  h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.1; color: var(--ink); }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .about-text p { font-size: 1rem; color: var(--ink-soft); line-height: 1.85; margin-bottom: 1.2rem; }
+  .skills-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+  .skill-item { }
+  .skill-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin-bottom: 6px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-tag {
+    font-size: 0.72rem; padding: 4px 10px; border-radius: 2px;
+    background: var(--accent-light); color: var(--accent);
+    font-weight: 400; letter-spacing: 0.03em;
+  }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--border); border: 1.5px solid var(--border); }
+  .project-card {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    transition: background 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .project-card:hover { background: var(--accent-light); }
+  .project-card::after {
+    content: '↗'; position: absolute; top: 1.5rem; right: 1.5rem;
+    font-size: 1rem; color: var(--ink-muted);
+    transition: color 0.2s, transform 0.2s;
+  }
+  .project-card:hover::after { color: var(--accent); transform: translate(2px, -2px); }
+  .project-num { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 1.5rem; }
+  .project-type {
+    display: inline-block; font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-light);
+    padding: 3px 8px; border-radius: 2px; margin-bottom: 1rem;
+  }
+  .project-title { font-family: var(--serif); font-size: 1.3rem; color: var(--ink); line-height: 1.2; margin-bottom: 0.75rem; }
+  .project-desc { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.5rem; }
+  .project-meta { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .project-tag { font-size: 0.68rem; padding: 3px 8px; border: 1px solid var(--border); color: var(--ink-muted); border-radius: 2px; }
+  .project-impact {
+    margin-top: 1.25rem; padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem; color: var(--accent); font-weight: 500;
+  }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-item {
+    display: grid; grid-template-columns: 180px 1fr;
+    gap: 3rem; padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+  .exp-date { font-size: 0.75rem; color: var(--ink-muted); letter-spacing: 0.04em; padding-top: 4px; }
+  .exp-company { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); margin-bottom: 0.2rem; }
+  .exp-role { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+  .exp-points { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+  .exp-points li { font-size: 0.88rem; color: var(--ink-soft); padding-left: 14px; position: relative; line-height: 1.6; }
+  .exp-points li::before { content: '–'; position: absolute; left: 0; color: var(--ink-muted); }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--ink); color: #fff;
+    padding: 6rem 4rem; max-width: 100%;
+  }
+  .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .contact-section .section-eyebrow { color: #6b9ec8; }
+  .contact-section .section-eyebrow::before { background: #6b9ec8; }
+  .contact-section h2 { color: #fff; margin-bottom: 1rem; }
+  .contact-section p { color: #aaa; font-size: 1rem; line-height: 1.75; }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid #2a2a2a;
+    text-decoration: none; color: #fff;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .contact-link:hover { border-color: #6b9ec8; background: rgba(107,158,200,0.07); }
+  .contact-link-icon { font-size: 1.1rem; width: 24px; }
+  .contact-link-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #666; }
+  .contact-link-val { font-size: 0.9rem; color: #fff; font-weight: 400; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink); border-top: 1px solid #1e1e1e;
+    padding: 1.5rem 4rem; max-width: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  footer p { font-size: 0.75rem; color: #444; letter-spacing: 0.04em; }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .hero-stats { gap: 2rem; }
+    .contact-section { padding: 4rem 1.5rem; }
+    footer { padding: 1.5rem; }
+  }
+</style>
 </head>
-
 <body>
 
-<div class="container">
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Deepika Narayan</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <!-- LEFT SIDE -->
-    <div class="left">
-        <h1>Deepika Narayan 🌸</h1>
-        <p>Business Analyst | Consultant <br> Aspiring to start building LEGO & Pokemon Collector</p>
-
-        <h2>👤 About Me</h2>
-        <p>
-        I am a Business Analyst interested in working with data, product growth, and strategy.
-        </p>
-
-        <h2>⚡ Skills</h2>
-        <p>
-        🔥 Excel <br>
-        💧 Data Cleaning <br>
-        ⚡ Insights <br>
-        🌿 Business Strategy
-        </p>
-
-        <h2>📬 Contact</h2>
-        <p>
-        LinkedIn: www.linkedin.com/in/deepika-narayan
-        </p>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Business Analyst · Strategy & Analytics</div>
+    <h1>Turning data into<br><em>decisions</em> that move<br>the needle.</h1>
+    <p class="hero-desc">5+ years at Deloitte and Amazon driving high-impact outcomes across growth, operations, and performance strategy. I work at the intersection of data, business logic, and clear communication.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
-
-    <!-- RIGHT SIDE -->
-    <div class="right">
-
-        <h2>📊 Pokédex (Projects)</h2>
-
-        <div class="project">
-            <h3>#001 SaaS Growth & Churn Analysis</h3>
-            <p>
-            Built an Excel dashboard analyzing revenue, churn, and customer behavior.
-            </p>
-
-            <p>
-            <a href="saas-growth-analysis-dashboard.xlsx">⬇ Download Excel</a><br>
-            <a href="https://github.com/yourusername/saas-growth-analysis">🔗 View GitHub</a>
-            </p>
-        </div>
-
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">$5M+</span>
+        <span class="stat-label">Strategic impact influenced</span>
+      </div>
+      <div>
+        <span class="stat-num">10M+</span>
+        <span class="stat-label">Rows of data analyzed</span>
+      </div>
+      <div>
+        <span class="stat-num">6+</span>
+        <span class="stat-label">Consulting engagements led</span>
+      </div>
+      <div>
+        <span class="stat-num">30%</span>
+        <span class="stat-label">Reporting cycle reduction</span>
+      </div>
     </div>
-
+  </div>
 </div>
 
-</body>
-</html>
-</html></p>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">About</div>
+    <h2>Analyst. Strategist.<br>Problem-solver.</h2>
+  </div>
+  <div class="about-grid fade-up">
+    <div class="about-text">
+      <p>I'm a Business Analyst with a background spanning management consulting at Deloitte and analytics at Amazon. I specialize in translating ambiguous, complex data into structured insights and clear executive narratives.</p>
+      <p>My work spans financial modeling, market sizing, KPI framework design, and performance dashboards — always with an eye on the business outcome, not just the output.</p>
+      <p>Based in Bengaluru. Open to hybrid and remote roles across industries.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <div class="skill-label">Analytics & Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Advanced Excel</span>
+          <span class="skill-tag">Alteryx</span>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-label">Strategy & Frameworks</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Market Sizing</span>
+          <span class="skill-tag">Financial Modeling</span>
+          <span class="skill-tag">KPI Design</span>
+          <span class="skill-tag">Business Case Dev</span>
+          <span class="skill-tag">Root-Cause Analysis</span>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-label">Execution & Communication</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Executive Presentations</span>
+          <span class="skill-tag">Stakeholder Management</span>
+          <span class="skill-tag">Cross-functional Leadership</span>
+          <span class="skill-tag">Process Automation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">Projects</div>
+    <h2>Selected work &<br>case studies.</h2>
+  </div>
+  <div class="projects-grid fade-up">
+
+    <div class="project-card">
+      <div class="project-num">01</div>
+      <div class="project-type">Market Sizing</div>
+      <div class="project-title">Market Entry Opportunity Sizing</div>
+      <div class="project-desc">Conducted bottom-up market sizing and competitive benchmarking to evaluate a new category expansion. Synthesized industry trends, customer segment data, and competitor positioning into a board-ready strategic recommendation.</div>
+      <div class="project-meta">
+        <span class="project-tag">Excel</span>
+        <span class="project-tag">PowerPoint</span>
+        <span class="project-tag">Market Research</span>
+      </div>
+      <div class="project-impact">↑ Informed $2M+ investment decision</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-type">Financial Model</div>
+      <div class="project-title">3-Statement Financial Model & Scenario Analysis</div>
+      <div class="project-desc">Built a fully-integrated financial model evaluating cost-benefit trade-offs across three investment scenarios. Included sensitivity analysis on key drivers, enabling leadership to stress-test assumptions before committing capital.</div>
+      <div class="project-meta">
+        <span class="project-tag">Advanced Excel</span>
+        <span class="project-tag">Financial Modeling</span>
+        <span class="project-tag">Scenario Planning</span>
+      </div>
+      <div class="project-impact">↑ Supported $5M+ strategic initiative</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">03</div>
+      <div class="project-type">SQL · Data Analysis</div>
+      <div class="project-title">Revenue Leakage Root-Cause Analysis</div>
+      <div class="project-desc">Queried 10M+ rows of transactional data to identify patterns in revenue leakage across product categories. Isolated root causes, quantified impact, and developed corrective action recommendations for the operations team.</div>
+      <div class="project-meta">
+        <span class="project-tag">SQL</span>
+        <span class="project-tag">Python (basic)</span>
+        <span class="project-tag">Root-Cause Analysis</span>
+      </div>
+      <div class="project-impact">↑ Reduced leakage by $300K–$600K annually</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">04</div>
+      <div class="project-type">Power BI · Tableau</div>
+      <div class="project-title">Executive KPI Dashboard Suite</div>
+      <div class="project-desc">Designed and built a suite of performance dashboards tracking revenue, margins, and operational KPIs across business units. Automated data refresh pipelines, reducing reporting cycle time by 30% and eliminating manual reconciliation.</div>
+      <div class="project-meta">
+        <span class="project-tag">Power BI</span>
+        <span class="project-tag">Tableau</span>
+        <span class="project-tag">Alteryx</span>
+        <span class="project-tag">DAX</span>
+      </div>
+      <div class="project-impact">↑ 30% faster reporting · $50K+ annual savings</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">Experience</div>
+    <h2>Where I've built<br>the work.</h2>
+  </div>
+  <div class="exp-list fade-up">
+    <div class="exp-item">
+      <div class="exp-date">May 2022 – Jun 2025</div>
+      <div>
+        <div class="exp-company">Deloitte USI</div>
+        <div class="exp-role">Business Analyst / Consultant</div>
+        <ul class="exp-points">
+          <li>Led 6+ consulting engagements driving $1M–$3M+ measurable impact</li>
+          <li>Built financial models and business cases influencing $5M+ in strategic decisions</li>
+          <li>Designed KPI frameworks and executive dashboards for cross-functional leadership</li>
+          <li>Automated analytics workflows — 30% reporting cycle reduction, $50K+ savings</li>
+          <li>Accelerated cross-functional decision-making by 20%</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Sep 2020 – May 2022</div>
+      <div>
+        <div class="exp-company">Amazon India</div>
+        <div class="exp-role">Business Analyst</div>
+        <ul class="exp-points">
+          <li>Analyzed 10M+ rows of data for strategic planning and forecasting</li>
+          <li>Built dashboards enabling $500K+ cost optimization initiatives</li>
+          <li>Identified $300K–$600K in annual revenue leakage through root-cause analysis</li>
+          <li>Improved decision turnaround time by 20% through stakeholder-facing reporting</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Aug – Nov 2017</div>
+      <div>
+        <div class="exp-company">Jana Lakshmi Small Finance Bank</div>
+        <div class="exp-role">Finance Intern</div>
+        <ul class="exp-points">
+          <li>Built operational performance dashboards for financial decision-making</li>
+          <li>Reduced process cycle time by 18% through data-driven process analysis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-eyebrow">Contact</div>
+      <h2>Let's work<br>together.</h2>
+      <p style="margin-top:1rem;">Open to Business Analyst, Strategy Analyst, and Analytics roles. Available for hybrid and remote positions. Based in Bengaluru — open to relocation.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:deepikanarayan333@gmail.com" class="contact-link">
+        <span class="contact-link-icon">✉</span>
+        <div>
+          <div class="contact-link-label">Email</div>
+          <div class="contact-link-val">deepikanarayan333@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://linkedin.com/in/deepika-narayan" target="_blank" class="contact-link">
+        <span class="contact-link-icon">in</span>
+        <div>
+          <div class="contact-link-label">LinkedIn</div>
+          <div class="contact-link-val">linkedin.com/in/deepika-narayan</div>
+        </div>
+      </a>
+      <a href="https://github.com/deepika-narayan" target="_blank" class="contact-link">
+        <span class="contact-link-icon">⌥</span>
+        <div>
+          <div class="contact-link-label">GitHub</div>
+          <div class="contact-link-val">github.com/deepika-narayan</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Deepika Narayan · Built to showcase work, not just words.</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
